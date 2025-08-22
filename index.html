@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="assets/love.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A romantic tribute to our life and love together!"
+    />
+    <title>Ten Years of Nora & David — 08·23·2015 → Today</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --rose: #eab5b0;
+        --champagne: #f7ede2;
+        --ink: #1f2a44;
+        --gold: #d4af37;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(31, 42, 68, 0.12);
+        --radius: 16px;
+        --space: clamp(16px, 2.5vw, 28px);
+        --maxw: 1100px;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--champagne);
+        color: var(--ink);
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", Georgia, serif;
+        line-height: 1.2;
+        margin: 0 0 0.5em;
+      }
+      h1 {
+        font-size: clamp(40px, 7vw, 72px);
+      }
+      h2 {
+        font-size: clamp(28px, 4.5vw, 40px);
+      }
+      h3 {
+        font-size: clamp(20px, 3vw, 28px);
+      }
+      a {
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: var(--space);
+      }
+      .card {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: clamp(16px, 2vw, 28px);
+      }
+      .muted {
+        opacity: 0.8;
+      }
+      .pill {
+        display: inline-block;
+        padding: 0.35em 0.8em;
+        border-radius: 999px;
+        background: var(--rose);
+        color: var(--ink);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        border: 1px solid rgba(31, 42, 68, 0.12);
+        background: var(--white);
+        border-radius: 12px;
+        padding: 0.7em 1em;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        text-decoration: none;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: linear-gradient(
+          180deg,
+          rgba(247, 237, 226, 0.95),
+          rgba(247, 237, 226, 0.75)
+        );
+        backdrop-filter: saturate(140%) blur(6px);
+        border-bottom: 1px solid rgba(31, 42, 68, 0.08);
+      }
+      nav {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem var(--space);
+      }
+      nav a:hover {
+        background: rgba(234, 181, 176, 0.25);
+      }
+      section {
+        scroll-margin-top: 72px;
+        margin: clamp(10px, 1.25vw, 14px) 0;
+      }
+      .timeline {
+        position: relative;
+        margin-left: 6px;
+      }
+      .timeline:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(var(--rose), var(--gold));
+      }
+      .t-item {
+        position: relative;
+        margin-left: 20px;
+        padding-left: 18px;
+      }
+      .t-item:before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        top: 0.4em;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--rose);
+        box-shadow: 0 0 0 3px rgba(234, 181, 176, 0.35);
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      /* Video frame for portrait clips */
+      .video-frame {
+        display: grid;
+        place-items: center;
+        background: var(--white);
+        border-radius: 12px;
+        padding: 8px;
+        box-shadow: var(--shadow);
+      }
+      .video-frame video {
+        height: min(80vh, 720px);
+        width: auto;
+        max-width: 100%;
+        border-radius: 8px;
+        object-fit: contain;
+        background: #000;
+      }
+      @media (max-width: 700px) {
+        .video-frame video {
+          width: 100%;
+          height: auto;
+        }
+      }
+      @media (min-width: 700px) {
+        .gallery {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .cap {
+        position: absolute;
+        left: 8px;
+        bottom: 8px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(4px);
+        padding: 0.35em 0.6em;
+        border-radius: 8px;
+        font-size: 0.9rem;
+      }
+      /* Hide captions by default; reveal on hover/focus */
+      #memories .gallery figure {
+        position: relative;
+      }
+      #memories .gallery .cap {
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        pointer-events: none; /* don't block taps/clicks */
+      }
+      #memories .gallery figure:hover .cap,
+      #memories .gallery figure:focus-within .cap {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .coupons {
+        display: grid;
+        gap: 12px;
+      }
+      @media (min-width: 768px) {
+        .coupons {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .coupon {
+        border-radius: 18px;
+        border: 2px dashed rgba(31, 42, 68, 0.22);
+        padding: 14px;
+        background: var(--white);
+        position: relative;
+      }
+      .coupon:after {
+        content: "✂";
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        opacity: 0.6;
+      }
+      .print-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PASSCODE GATE -->
+    <div
+      id="gate"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: var(--champagne);
+      "
+    >
+      <div class="card" style="max-width: 400px; text-align: center">
+        <h2>Enter Passcode</h2>
+        <input
+          id="pass"
+          type="password"
+          style="
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 80%;
+          "
+        />
+        <button class="btn" onclick="checkPass()">Unlock</button>
+        <p class="muted" style="margin-top: 8px">
+          Hint: One of our silly nicknames ♥
+        </p>
+      </div>
+    </div>
+
+    <div id="site" style="display: none">
+      <header>
+        <nav class="wrap">
+          <a href="#hero" class="btn">Home</a>
+          <a href="#memories" class="btn">Memories</a>
+          <a href="#timeline" class="btn">Timeline</a>
+          <a href="#notes" class="btn">Love Notes</a>
+          <a href="#playlist" class="btn">Playlist</a>
+          <a href="#coupons" class="btn">Coupons</a>
+        </nav>
+      </header>
+
+      <!-- HERO -->
+      <section id="hero" class="wrap card">
+        <h1>Ten Years of Us</h1>
+        <p>Since 08·23·2015</p>
+        <!-- Replace hero.jpg with a favorite photo of you two, saved inside assets/hero.jpg -->
+        <img src="assets/anniversary1.jpg" alt="A favorite memory together" />
+      </section>
+
+      <!-- MEMORIES (10 PHOTOS + OPTIONAL VIDEO) -->
+      <section id="memories" class="card wrap">
+        <h2>Memories</h2>
+        <p class="muted">
+          Ten photos for ten years. Hover/tap for a tiny caption.
+        </p>
+        <div class="gallery" aria-live="polite">
+          <figure style="position: relative">
+            <img src="assets/anniversary2.jpg" alt="snazzy and happy" />
+            <figcaption class="cap">
+              Us looking sharp and ready to party
+            </figcaption>
+          </figure>
+          <figure style="position: relative">
+            <img
+              src="assets/anniversary3.jpg"
+              alt="The inevitable, us kissing."
+            />
+            <figcaption class="cap">The inevitable: us, kissing.</figcaption>
+          </figure>
+          <figure style="position: relative">
+            <img src="assets/anniversary4.jpg" alt="irresistable smiles" />
+            <figcaption class="cap">I love your smile</figcaption>
+          </figure>
+          <figure style="position: relative">
+            <img src="assets/anniversary5.JPG" alt="Memory 5" />
+            <figcaption class="cap">Have axe, will chop.</figcaption>
+          </figure>
+          <figure style="position: relative">
+            <img src="assets/anniversary6.jpg" alt="Memory 6" />
+            <figcaption class="cap">Our family grows.</figcaption>
+          </figure>
+          <figure style="position: relative">
+            <img src="assets/anniversary7.jpg" alt="Memory 7" />
+            <figcaption class="cap">Our Orchid Day!</figcaption>
+          </figure>
+          <figure style="position: relative">
+            <img src="assets/anniversary8.jpg" alt="Memory 8" />
+            <figcaption class="cap">
+              We look good in the Grecian sun.
+            </figcaption>
+          </figure>
+          <figure style="position: relative">
+            <img src="assets/anniversary9.jpg" alt="Memory 9" />
+            <figcaption class="cap">
+              The cliffs of Moher, where I prayed for more hair. lol.
+            </figcaption>
+          </figure>
+          <figure style="position: relative">
+            <img src="assets/anniversary10.jpg" alt="Memory 10" />
+            <figcaption class="cap">An amazing date</figcaption>
+          </figure>
+        </div>
+
+        <div class="card" style="margin-top: 12px">
+          <h3>Little Video Moment</h3>
+          <div class="video-frame">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              src="assets/anniversary.MP4"
+              poster="assets/anniversary10.jpg"
+            ></video>
+          </div>
+          <div class="muted" style="font-size: 0.9rem; margin-top: 6px">
+            Sized to fit your screen on laptops; full-width on phones.
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section id="timeline" class="card wrap">
+        <h2>Timeline</h2>
+        <div class="timeline">
+          <div class="t-item">
+            <h3>June 9, 2007 — First Kiss</h3>
+            <p>In front of a group home for children.</p>
+          </div>
+          <div class="t-item">
+            <h3>2007 — Botanical Gardens</h3>
+            <p>Our date among the flowers.</p>
+          </div>
+          <div class="t-item">
+            <h3>2007 — Walk from Ceasers Bay</h3>
+            <p>You poked my sides, I fell. We laughed so hard.</p>
+          </div>
+          <div class="t-item">
+            <h3>Sept 2012 — Birthright Israel</h3>
+            <p>Exploring together overseas.</p>
+          </div>
+          <div class="t-item">
+            <h3>Jan 9, 2014 — Engaged</h3>
+            <p>Proposed underwater while snorkeling on our cruise.</p>
+          </div>
+          <div class="t-item"><h3>Aug 23, 2015 — Married</h3></div>
+          <div class="t-item">
+            <h3>Sept 2019 — Honeymoon</h3>
+            <p>Ireland, UK, Greece.</p>
+          </div>
+          <div class="t-item"><h3>Jun 21, 2020 — Our Daughter Born</h3></div>
+          <div class="t-item">
+            <h3>Aug 23, 2025 — Ten Years</h3>
+            <p>Looking forward to the next decade ♥</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOVE NOTES -->
+      <section id="notes" class="card wrap">
+        <h2>Love Notes</h2>
+        <div class="card">
+          <h3>Thank you for…</h3>
+          <p>
+            Everything you are and all that you do. I love your smile and am
+            addicted to your laugh. I am grateful for all that you do. I am a
+            better man for having loved you.You are amazing.
+          </p>
+        </div>
+        <div class="card">
+          <h3>I admire…</h3>
+          <p>
+            Your calm, your strength and your heart. I see the way that you
+            tackle each day. I see the way you get back up after life knocks you
+            down and I am nothing less than in awe.
+          </p>
+        </div>
+        <div class="card">
+          <h3>I promise…</h3>
+          <p>
+            to never forget what matters most to me in this life. It is you, and
+            our family. I promise to work harder, work smarter, and never stop
+            trying.
+          </p>
+        </div>
+        <details>
+          <summary>🔒 Unlockable Letter</summary>
+          <p>This is where your private, longer letter goes.</p>
+        </details>
+      </section>
+
+      <!-- PLAYLIST -->
+      <section id="playlist" class="card wrap">
+        <h2>Our Playlist</h2>
+
+        <div class="card" style="overflow: hidden; border-radius: 12px">
+          <!-- Replace this iframe with Spotify’s embed iframe -->
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/playlist/7u29LrtdTkvDzbJRMpr1Oh?utm_source=generator"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- COUPONS -->
+      <section id="coupons" class="card wrap">
+        <h2>Redeemable Coupons</h2>
+        <div id="couponArea" class="coupons">
+          <div class="coupon"><h3>No Questions Asked Footrub</h3></div>
+          <div class="coupon"><h3>No Questions Asked Spicy Scene</h3></div>
+          <div class="coupon"><h3>Breakfast in Bed</h3></div>
+          <div class="coupon"><h3>At-Home Movie Night</h3></div>
+          <div class="coupon"><h3>Unplugged Walk</h3></div>
+          <div class="coupon"><h3>Lazy Sunday Sleep-In</h3></div>
+          <div class="coupon"><h3>Your Choice Takeout Night</h3></div>
+          <div class="coupon"><h3>Kid-Free Afternoon Adventure</h3></div>
+          <div class="coupon"><h3>Surprise Dessert Delivery</h3></div>
+          <div class="coupon"><h3>Massage Trade</h3></div>
+        </div>
+        <div class="print-actions">
+          <button class="btn" id="printCoupons">Print coupons</button>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function checkPass() {
+        const val = document.getElementById("pass").value.trim().toLowerCase();
+        const correct = [
+          "butt butt",
+          "froggie",
+          "wolfie",
+          "mumble ranter",
+          "mumble skipper",
+          "your face",
+          "always and forever",
+        ];
+        if (correct.includes(val)) {
+          document.getElementById("gate").style.display = "none";
+          document.getElementById("site").style.display = "block";
+          sessionStorage.setItem("anniversaryUnlocked", "yes");
+        } else {
+          alert("Incorrect passcode. Try again.");
+        }
+      }
+      if (sessionStorage.getItem("anniversaryUnlocked") === "yes") {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("site").style.display = "block";
+      }
+
+      // Print coupons area in a clean window
+      const btn = document.getElementById("printCoupons");
+      if (btn) {
+        btn.addEventListener("click", () => {
+          const area = document.getElementById("couponArea").cloneNode(true);
+          const w = window.open("", "PRINT", "height=700,width=900");
+          w.document.write(`<!doctype html><html><head><title>Coupons</title>
+          <style>
+            body{font-family:Inter,Arial,sans-serif;margin:20px}
+            .coupons{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+            @media print{.coupons{grid-template-columns:repeat(2,1fr)}}
+            .coupon{border-radius:18px;border:2px dashed #999;padding:14px}
+            .coupon h3{margin:0 0 6px;font-family:'Playfair Display', Georgia, serif}
+            .coupon small{display:block;opacity:.7}
+          </style>
+        </head><body></body></html>`);
+          w.document.body.appendChild(area);
+          w.document.close();
+          w.focus();
+          w.print();
+        });
+      }
+      // Make gallery figures focusable so :focus-within works on tap/keyboard
+      document.querySelectorAll("#memories .gallery figure").forEach((fig) => {
+        if (!fig.hasAttribute("tabindex")) fig.setAttribute("tabindex", "0");
+      });
+      document
+        .querySelectorAll("#memories img")
+        .forEach((img) => (img.loading = "lazy"));
+    </script>
+  </body>
+</html>
